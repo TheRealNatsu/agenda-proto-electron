@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(240, 227, 210);
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.agenda-cont {
+    padding: 5px;
+    width: 700px;
+    height: 80vh;
+    margin: auto;
+    background-color: #b4ecc9;
+    border-radius: 20px;
+}
+
+.card {
+    width: 180px;
+    padding: 2px;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: blueviolet;
+    border-radius: 12px;
+    text-align: center;
+}

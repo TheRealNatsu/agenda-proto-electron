@@ -1,0 +1,22 @@
+{
+  "name": "agenda-proto-electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "rebuild": ".\\node_modules\\.bin\\electron-rebuild.cmd",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Agenda project using Electrojs",
+  "devDependencies": {
+    "electron": "^37.3.0",
+    "electron-rebuild": "^3.2.9"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}
