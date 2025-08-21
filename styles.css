@@ -16,10 +16,13 @@ body {
 .card {
     width: 180px;
     padding: 2px;
-    
+    display: flex;
     margin-top: 10px;
     margin-left: 10px;
     background-color: blueviolet;
     border-radius: 12px;
     text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
