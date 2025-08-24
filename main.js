@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require("electron");
+const path = require("path");
 
 require("electron-reload")(__dirname);
 
@@ -9,10 +10,10 @@ const createWindow = () => {
     width: 800,
     height: 600,
   });
-  window.loadFile("index.html");
+  window.loadFile(path.join(__dirname, "pages/index.html"));
 };
 
 app.whenReady().then(() => {
   createWindow();
-  getDatabase();
+  getDatabase();4
 });
