@@ -1,40 +1,48 @@
 body {
-    background-color: rgb(240, 227, 210);
-    font-family: sans-serif;
-    box-sizing: border-box;
+  background-color: rgb(240, 227, 210);
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
 .agenda-cont {
-    padding: 5px;
-    width: 700px;
-    height: 80vh;
-    margin: auto;
-    background-color: #b4ecc9;
-    border-radius: 20px;
+  padding: 5px;
+  width: 90vw;
+
+  margin: auto;
+  background-color: #b4ecc9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .card {
-    width: 180px;
-    padding: 2px;
-    display: flex;
-    margin-top: 10px;
-    margin-left: 10px;
-    background-color: blueviolet;
-    border-radius: 12px;
-    text-align: center;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+  width: 180px;
+  height: 180px;
+  padding: 2px;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: blueviolet;
+  border-radius: 12px;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-#form-content{
-display: flex;
-height: 200px;
-width: 300px;
-align-items: center;
-justify-content: space-around;
-flex-direction: column;
-background-color: aquamarine;
-border-radius: 15px;
-padding: 5px;
+#description {
+  width: 250px;
+}
+
+#form-content {
+  display: flex;
+  height: 200px;
+  width: 300px;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: aquamarine;
+  border-radius: 15px;
+  padding: 5px;
 }
