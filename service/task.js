@@ -1,12 +1,15 @@
-const {} = require('electron')
+const taskForm = document.getElementById("form-content");
 
-const taskForm = document.getElementById('form-content');
-
-const cliente = document.getElementById('cliente');
-const fecha = document.getElementById('fecha');
-const servicio = document.getElementById('servicio');
-const descripcion = document.getElementById('descripcion');
-
-taskForm.addEventListener('submit', (e)=>{
-    e.preventDefault()
-})
+taskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const cliente = document.getElementById("cliente").value;
+  const fecha = document.getElementById("fecha").value;
+  const servicio = document.getElementById("servicio").value;
+  const descripcion = document.getElementById("descripcion").value;
+  console.log({
+    cliente: cliente,
+    fecha: fecha,
+    servicio: servicio,
+    descripcion: descripcion,
+  });
+});

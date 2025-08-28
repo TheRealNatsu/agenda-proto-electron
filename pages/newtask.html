@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agregar turno</title>
     <link rel="stylesheet" href="../public/styles.css" />
-  </head>
-  <body>
-    <form action="" method="post" id="form-content">
-      <h2>Crear Turno</h2>
-      <label for="cliente"></label>
-      <input type="text" name="cliente" placeholder="Cliente" id="cliente" />
-      <label for="servicio"></label>
-      <select name="servicio" id="servicio">
-        <option value="Pedicuria">Pedicuria</option>
-        <option value="Manicuria">Manicuria</option>
-        <option value="Masaje">Masaje</option>
-      </select>
-      <label for="fecha"></label>
-      <input
-        type="datetime-local"
-        name="fecha"
-        min="2025-01-01T07:00"
-        max="2026-12-31T19:00"
-      />
-      <label for="description"></label>
-      <textarea
-        name="descripcion"
-        id="descripcion"
-        placeholder="Detalles del servicio"
-      ></textarea>
-      <button>Crear turno</button>
+</head>
+
+<body>
+    <form method="post" id="form-content">
+        <h2>Crear Turno</h2>
+        <label for="cliente">
+            <input type="text" name="cliente" placeholder="Cliente" id="cliente" /></label>
+        <label for="servicio">
+            <select name="servicio" id="servicio">
+                <option value="Pedicuria">Pedicuria</option>
+                <option value="Manicuria">Manicuria</option>
+                <option value="Masaje">Masaje</option>
+            </select></label>
+        <label for="fecha">
+            <input type="datetime-local" name="fecha" min="2025-01-01T07:00" max="2026-12-31T19:00"
+                id="fecha" /></label>
+        <label for="description">
+            <textarea name="descripcion" id="descripcion" placeholder="Detalles del servicio"></textarea>
+        </label>
+        <button>Crear turno</button>
     </form>
-    <script src="/service/task.js"></script>
-  </body>
+    <script src="../service/task.js"></script>
+</body>
+
 </html>

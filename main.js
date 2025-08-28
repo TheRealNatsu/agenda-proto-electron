@@ -19,17 +19,23 @@ const createWindow = () => {
     },
   });
   window.loadFile(path.join(__dirname, "pages/index.html"));
+  window.on("closed", () => {
+    app.quit();
+  });
 };
 
 //ventana para agregar turnos
 const createTaskWindow = () => {
-  const taskWindow = new BrowserWindow({
+  let taskWindow = new BrowserWindow({
     width: 350,
     height: 270,
     title: "Nuevo turno",
   });
-  taskWindow.setMenu(null);
+  // taskWindow.setMenu(null);
   taskWindow.loadFile(path.join(__dirname, "pages/newtask.html"));
+  taskWindow.on("closed", () => {
+    taskWindow = null;
+  });
 };
 
 //menu de navegacion principal
@@ -44,9 +50,32 @@ const templateMenu = [
           createTaskWindow();
         },
       },
+      { type: "separator" },
+      {
+        label: "Exit",
+        accelerator: "Ctrl+Q",
+        click: () => {
+          app.quit();
+        },
+      },
     ],
   },
 ];
+
+if (process.env.NODE_ENV !== "production") {
+  templateMenu.push({
+    label: "DevTools",
+    submenu: [
+      {
+        label: "Show/ Hide DevTools",
+        accelerator: "Ctrl+Shift+R",
+        click: (item, focusedWindow) => {
+          focusedWindow.toggleDevTools();
+        },
+      },
+    ],
+  });
+}
 
 app.whenReady().then(() => {
   createWindow();
