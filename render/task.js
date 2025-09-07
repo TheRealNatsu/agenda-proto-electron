@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron');
+
 const taskForm = document.getElementById("form-content");
 
 taskForm.addEventListener("submit", (e) => {
@@ -6,10 +8,13 @@ taskForm.addEventListener("submit", (e) => {
   const fecha = document.getElementById("fecha").value;
   const servicio = document.getElementById("servicio").value;
   const descripcion = document.getElementById("descripcion").value;
-  console.log({
+
+  const newTask = {
     cliente: cliente,
     fecha: fecha,
     servicio: servicio,
-    descripcion: descripcion,
-  });
+    descripcion: descripcion
+  }
+
+  ipcRenderer.send("send-task", newTask)
 });

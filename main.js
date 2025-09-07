@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow, Menu, ipcMain } = require("electron");
 const path = require("path");
 
 //Paquetes y procesos que no correria fuera de produccion
@@ -9,13 +9,18 @@ if (process.env.NODE_ENV !== "production") {
 //requerimiento a la base de datos
 const { getDatabase } = require("./database/database.js");
 
+//declaracion de ventanas
+let window;
+let taskWindow
+
 //Ventana principal
 const createWindow = () => {
-  const window = new BrowserWindow({
+  window = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
   window.loadFile(path.join(__dirname, "pages/index.html"));
@@ -26,12 +31,16 @@ const createWindow = () => {
 
 //ventana para agregar turnos
 const createTaskWindow = () => {
-  let taskWindow = new BrowserWindow({
+  taskWindow = new BrowserWindow({
     width: 350,
     height: 270,
     title: "Nuevo turno",
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
-  // taskWindow.setMenu(null);
+  taskWindow.setMenu(null);
   taskWindow.loadFile(path.join(__dirname, "pages/newtask.html"));
   taskWindow.on("closed", () => {
     taskWindow = null;
@@ -76,6 +85,12 @@ if (process.env.NODE_ENV !== "production") {
     ],
   });
 }
+
+//protocolo de comunicacion entre ventanas
+ipcMain.on("send-task", (e, newTask) => {
+  window.webContents.send('send-task', newTask);
+  taskWindow.close();
+});
 
 app.whenReady().then(() => {
   createWindow();

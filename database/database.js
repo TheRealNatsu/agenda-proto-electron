@@ -8,7 +8,7 @@ function getDatabase() {
 function obtenerData() {
 const query = database.prepare(`SELECT * FROM tareas`);
 const data = query.all()
-console.log(data);
+return data
 }
 
-module.exports = { getDatabase };
+module.exports = { getDatabase, obtenerData };
