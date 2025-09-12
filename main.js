@@ -16,8 +16,8 @@ let taskWindow
 //Ventana principal
 const createWindow = () => {
   window = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 900,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

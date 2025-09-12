@@ -5,10 +5,19 @@ function getDatabase() {
   return database;
 }
 
+const fechaActual = new Date();
+
+
 function obtenerData() {
-const query = database.prepare(`SELECT * FROM tareas`);
+const query = database.prepare(`SELECT * FROM tareas ORDER BY fecha`);
 const data = query.all()
-return data
+const dataFiltrada = data.filter((a)=> a.fecha >= fechaActual.toISOString()); 
+return dataFiltrada
 }
 
-module.exports = { getDatabase, obtenerData };
+function eliminarRegistro(n) {
+  const query = database.prepare(`DELETE FROM tareas WHERE id = ?`);
+  query.run(n)
+}
+
+module.exports = { getDatabase, obtenerData, eliminarRegistro };
