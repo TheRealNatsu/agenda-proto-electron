@@ -11,13 +11,14 @@ const { getDatabase } = require("./database/database.js");
 
 //declaracion de ventanas
 let window;
-let taskWindow
+let taskWindow;
 
 //Ventana principal
 const createWindow = () => {
   window = new BrowserWindow({
     width: 1200,
     height: 900,
+    title: "Agenda DIOSA MADRE",
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -33,7 +34,7 @@ const createWindow = () => {
 const createTaskWindow = () => {
   taskWindow = new BrowserWindow({
     width: 350,
-    height: 270,
+    height: 450,
     title: "Nuevo turno",
     webPreferences: {
       nodeIntegration: true,
@@ -61,10 +62,29 @@ const templateMenu = [
       },
       { type: "separator" },
       {
+        label: "Agenda diaria",
+        accelerator: "Ctrl+A",
+        click: () => {
+          window.loadFile(path.join(__dirname, "pages", "index.html"));
+        },
+      },
+      { type: "separator" },
+      {
         label: "Exit",
         accelerator: "Ctrl+Q",
         click: () => {
           app.quit();
+        },
+      },
+    ],
+  },
+  {
+    label: "Contables",
+    submenu: [
+      {
+        label: "Registro diario",
+        click: () => {
+          window.loadFile(path.join(__dirname, "pages", "contable.html"));
         },
       },
     ],
@@ -88,7 +108,7 @@ if (process.env.NODE_ENV !== "production") {
 
 //protocolo de comunicacion entre ventanas
 ipcMain.on("send-task", (e, newTask) => {
-  window.webContents.send('send-task', newTask);
+  window.webContents.send("send-task", newTask);
   taskWindow.close();
 });
 

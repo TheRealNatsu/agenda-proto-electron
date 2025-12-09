@@ -1,5 +1,7 @@
 body {
-  background: linear-gradient(rgb(241, 183, 253), rgb(247, 122, 230));
+  background: linear-gradient(to right, #fce4ec, #f8bbd0);
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
   display: flex;
@@ -8,6 +10,37 @@ body {
   flex-direction: column;
   height: 100vh;
 }
+
+h1 {
+  text-align: center;
+  color: #ad1457;
+  margin-top: 40px;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+body {
+  font-family: 'Lora', serif;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: #ad1457;
+}
+
+.date-time {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: #d81b60;
+}
+
+.date-time {
+  text-align: center;
+  color: #d81b60;
+  margin-bottom: 30px;
+}
+
 
 #agenda-cont {
   padding: 5px;

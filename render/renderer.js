@@ -31,7 +31,7 @@ for (let i = 0; i < listaTareas.length; i++) {
           <h3>${listaTareas[i].cliente}</h3>
           <p>${fecha.getDate()}-${
     fecha.getMonth() + 1
-  } / ${fecha.getHours()}hs</p>
+  } / ${fecha.getHours()}:${fecha.getMinutes()}hs</p>
           <button class="btn">X</button>
           <h4>${listaTareas[i].servicio}</h4>
           <p>${listaTareas[i].descripcion}</p>
@@ -39,11 +39,12 @@ for (let i = 0; i < listaTareas.length; i++) {
   turnos.innerHTML += cardTemplate;
 // funcion de boton para eliminar tarea
   const btns = document.querySelectorAll(".btn");
-  //convertir nodelist en array para usar indexOf para la funcion eliminarregistro
+  //convertir nodelist en array para usar indexOf para la funcion eliminarRegistro
   const arrayBtn = Array.from(btns);
  
   btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
+      
       eliminarRegistro(listaTareas[arrayBtn.indexOf(btn)].id);
     });
   });
