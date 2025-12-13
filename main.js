@@ -34,7 +34,7 @@ const createWindow = () => {
 const createTaskWindow = () => {
   taskWindow = new BrowserWindow({
     width: 350,
-    height: 450,
+    height: 480,
     title: "Nuevo turno",
     webPreferences: {
       nodeIntegration: true,
@@ -118,3 +118,4 @@ app.whenReady().then(() => {
   const mainMenu = Menu.buildFromTemplate(templateMenu);
   Menu.setApplicationMenu(mainMenu);
 });
+
